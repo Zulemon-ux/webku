@@ -262,54 +262,9 @@
             opacity: 0.8;
         }
 
-        /* Table section */
-        .table-section {
-            background: white;
-            border-radius: 1.2rem;
-            border: 1px solid #e6edf5;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-            margin-bottom: 1.5rem;
-        }
-
-        .table-section h5 {
-            font-weight: 600;
-            color: #0b2b40;
-            margin-bottom: 1rem;
-        }
-
-        .table-section h5 i {
-            color: #f9b81b;
-        }
-
-        .table-section table {
-            font-size: 0.9rem;
-        }
-
-        .table-section table th {
-            font-weight: 600;
-            color: #1f4055;
-            border-bottom: 2px solid #eef3f8;
-        }
-
-        .table-section table td {
-            color: #1d3b4b;
-            vertical-align: middle;
-        }
-
-        .badge-status {
-            background: #d9e6f0;
-            padding: 0.2rem 0.8rem;
-            border-radius: 40px;
+        .stat-card small {
+            color: #8aaec2;
             font-size: 0.7rem;
-            font-weight: 600;
-            color: #1a4055;
-            display: inline-block;
-        }
-
-        .badge-status.aktif {
-            background: #c7e2d4;
-            color: #0f493b;
         }
 
         /* ===== FOOTER ===== */
@@ -364,7 +319,6 @@
                 font-size: 1rem;
             }
 
-            /* overlay */
             .sidebar-overlay {
                 display: none;
                 position: fixed;
@@ -501,7 +455,7 @@
                         <div>
                             <div class="stat-number">520</div>
                             <div class="stat-label">Jumlah Siswa</div>
-                            <small style="color: #8aaec2; font-size: 0.7rem;">Total siswa terdaftar</small>
+                            <small>Total siswa terdaftar</small>
                         </div>
                         <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
                     </div>
@@ -511,7 +465,7 @@
                         <div>
                             <div class="stat-number">45</div>
                             <div class="stat-label">Jumlah Guru</div>
-                            <small style="color: #8aaec2; font-size: 0.7rem;">Total guru aktif</small>
+                            <small>Total guru aktif</small>
                         </div>
                         <div class="stat-icon"><i class="bi bi-person-workspace"></i></div>
                     </div>
@@ -521,59 +475,10 @@
                         <div>
                             <div class="stat-number">18</div>
                             <div class="stat-label">Jumlah Kelas</div>
-                            <small style="color: #8aaec2; font-size: 0.7rem;">Total kelas tersedia</small>
+                            <small>Total kelas tersedia</small>
                         </div>
                         <div class="stat-icon"><i class="bi bi-building"></i></div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Tabel Data Siswa (contoh) -->
-            <div class="table-section">
-                <h5><i class="bi bi-table"></i> Data Siswa Terbaru</h5>
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>NIS</th>
-                                <th>Nama</th>
-                                <th>Kelas</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>2101</strong></td>
-                                <td>Andi Pratama</td>
-                                <td>XII RPL 1</td>
-                                <td><span class="badge-status aktif">Aktif</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>2105</strong></td>
-                                <td>Siti Rahma</td>
-                                <td>XI MM 2</td>
-                                <td><span class="badge-status">Pindah</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>2112</strong></td>
-                                <td>Budi Santoso</td>
-                                <td>XII TKJ 3</td>
-                                <td><span class="badge-status aktif">Aktif</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>2120</strong></td>
-                                <td>Dewi Lestari</td>
-                                <td>X RPL 2</td>
-                                <td><span class="badge-status aktif">Aktif</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>2133</strong></td>
-                                <td>Rizky Hidayat</td>
-                                <td>XI TKJ 1</td>
-                                <td><span class="badge-status">Cuti</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
 
@@ -613,7 +518,6 @@
         document.querySelectorAll('.sidebar .nav-menu li a').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (window.innerWidth <= 992) {
-                    // Jangan tutup sidebar kalau linknya # (prevent default)
                     if (this.getAttribute('href') === '#') {
                         e.preventDefault();
                     }
