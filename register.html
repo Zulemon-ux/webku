@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar · Sistem Informasi Sekolah</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0b2b40 0%, #1a4a62 50%, #2d6f8a 100%);
+            padding: 1.5rem;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(249, 184, 27, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .register-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2.5rem 2.8rem 2.8rem 2.8rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        .register-card .logo-area {
+            text-align: center;
+            margin-bottom: 1.8rem;
+        }
+        .register-card .logo-area h1 {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #0b2b40;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+        .register-card .logo-area h1 i { color: #f9b81b; }
+        .register-card .logo-area p {
+            color: #4f6f82;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0;
+        }
+        .register-card .logo-area .line-decoration {
+            width: 60px;
+            height: 3px;
+            background: #f9b81b;
+            margin: 0.6rem auto 0 auto;
+            border-radius: 10px;
+        }
+        .register-card .input-group-custom {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .register-card .input-group-custom .input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7a9bb0;
+            font-size: 1.1rem;
+            z-index: 4;
+        }
+        .register-card .input-group-custom input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.8rem;
+            border: 2px solid #e2ebf3;
+            border-radius: 1rem;
+            font-size: 0.95rem;
+            background: #f8fafc;
+            transition: 0.15s;
+            color: #0b2b40;
+            font-weight: 500;
+        }
+        .register-card .input-group-custom input:focus {
+            outline: none;
+            border-color: #f9b81b;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(249, 184, 27, 0.12);
+        }
+        .register-card .input-group-custom input::placeholder {
+            color: #a5bccd;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+        .register-card .btn-register {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 1rem;
+            background: linear-gradient(145deg, #0b2b40, #1a4055);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: 0.15s;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            box-shadow: 0 6px 16px rgba(11, 43, 64, 0.25);
+        }
+        .register-card .btn-register:hover {
+            background: linear-gradient(145deg, #123d55, #1f4f68);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(11, 43, 64, 0.3);
+        }
+        .register-card .login-link {
+            text-align: center;
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #4f6f82;
+        }
+        .register-card .login-link a {
+            color: #0b2b40;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.15s;
+        }
+        .register-card .login-link a:hover {
+            color: #f9b81b;
+            text-decoration: underline;
+        }
+        .register-card .alert {
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            padding: 0.6rem 1rem;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e4edf5;
+        }
+        .social-links a {
+            color: #5a7d92;
+            font-size: 0.85rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .social-links a:hover { color: #0b2b40; }
+        .social-links a i { font-size: 1.1rem; }
+        @media (max-width: 480px) {
+            .register-card { padding: 2rem 1.5rem; }
+            .register-card .logo-area h1 { font-size: 1.3rem; }
+            .social-links { flex-wrap: wrap; gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-card">
+        <div class="logo-area">
+            <h1><i class="bi bi-person-plus"></i> Daftar</h1>
+            <p>Buat akun baru</p>
+            <div class="line-decoration"></div>
+        </div>
+
+        <!-- Alert notifikasi -->
+        <div id="alertMessage" class="alert d-none" role="alert"></div>
+
+        <form id="registerForm">
+            <div class="input-group-custom">
+                <span class="input-icon"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" id="fullname" placeholder="Masukkan nama lengkap" required />
+            </div>
+            <div class="input-group-custom">
+                <span class="input-icon"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="email" placeholder="Masukkan email" required />
+            </div>
+            <div class="input-group-custom">
+                <span class="input-icon"><i class="bi bi-person-badge"></i></span>
+                <input type="text" class="form-control" id="username" placeholder="Buat username" required />
+            </div>
+            <div class="input-group-custom">
+                <span class="input-icon"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="password" placeholder="Buat password (min 6 karakter)" required />
+            </div>
+            <div class="input-group-custom">
+                <span class="input-icon"><i class="bi bi-shield-lock"></i></span>
+                <input type="password" class="form-control" id="confirm_password" placeholder="Konfirmasi password" required />
+            </div>
+            <button type="submit" class="btn-register">
+                <i class="bi bi-person-add"></i> DAFTAR
+            </button>
+        </form>
+
+        <div class="login-link">
+            Sudah punya akun? <a href="index.html">Login di sini</a>
+        </div>
+
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
+            <a href="#" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+            <a href="#" target="_blank"><i class="bi bi-twitter-x"></i> Twitter</a>
+        </div>
+        <div style="text-align: center; margin-top: 1.2rem; font-size: 0.7rem; color: #8aaec2;">
+            SMK Pawiytan Surabaya &bull; Project Praktik
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullname = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            const alertEl = document.getElementById('alertMessage');
+
+            // Validasi
+            if (!fullname || !email || !username || !password || !confirmPassword) {
+                showAlert('Semua field harus diisi!', 'danger');
+                return;
+            }
+
+            if (password.length < 6) {
+                showAlert('Password minimal 6 karakter!', 'danger');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showAlert('Password dan konfirmasi password tidak sama!', 'danger');
+                return;
+            }
+
+            // Ambil data user yang sudah tersimpan di LocalStorage
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Cek apakah username sudah terdaftar
+            if (users.some(user => user.username === username)) {
+                showAlert('Username sudah terdaftar! Gunakan username lain.', 'danger');
+                return;
+            }
+
+            // Cek apakah email sudah terdaftar
+            if (users.some(user => user.email === email)) {
+                showAlert('Email sudah terdaftar! Gunakan email lain.', 'danger');
+                return;
+            }
+
+            // Simpan data user baru
+            const newUser = {
+                fullname: fullname,
+                email: email,
+                username: username,
+                password: password,
+                createdAt: new Date().toISOString()
+            };
+
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+
+            showAlert('Registrasi berhasil! Silakan login.', 'success');
+            
+            // Reset form
+            document.getElementById('registerForm').reset();
+
+            // Redirect ke halaman login setelah 2 detik
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        });
+
+        function showAlert(message, type) {
+            const alertEl = document.getElementById('alertMessage');
+            alertEl.textContent = message;
+            alertEl.className = `alert alert-${type}`;
+            alertEl.classList.remove('d-none');
+            
+            // Auto hide setelah 5 detik
+            setTimeout(() => {
+                alertEl.classList.add('d-none');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
